@@ -27625,3 +27625,101 @@ cc_prebuilt_binary {
     prefer: true,
     soc_specific: true,
 }
+/**
+ * IMS Media Stack Libraries (System)
+ */
+
+cc_prebuilt_library_shared {
+    name: "libimsma",
+    owner: "xiaomi",
+    strip: { none: true },
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/system/lib64/libimsma.so"],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libimsma_adapt",
+    owner: "xiaomi",
+    strip: { none: true },
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/system/lib64/libimsma_adapt.so"],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libimsma_rtp",
+    owner: "xiaomi",
+    strip: { none: true },
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/system/lib64/libimsma_rtp.so"],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libimsma_socketwrapper",
+    owner: "xiaomi",
+    strip: { none: true },
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/system/lib64/libimsma_socketwrapper.so"],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+}
+
+/**
+ * ePDG / VoWiFi Binaries (Vendor)
+ */
+
+cc_prebuilt_binary {
+    name: "charon",
+    owner: "xiaomi",
+    srcs: ["proprietary/vendor/bin/charon"],
+    check_elf: false,
+    strip: { none: true },
+    vendor: true,
+}
+
+cc_prebuilt_binary {
+    name: "epdg_wod",
+    owner: "xiaomi",
+    srcs: ["proprietary/vendor/bin/epdg_wod"],
+    check_elf: false,
+    strip: { none: true },
+    vendor: true,
+}
+
+/**
+ * ePDG Support Libraries (Vendor)
+ */
+
+cc_prebuilt_library_shared {
+    name: "libcharon-ss",
+    owner: "xiaomi",
+    strip: { none: true },
+    target: {
+        android_arm: {
+            srcs: ["proprietary/vendor/lib/libcharon-ss.so"],
+        },
+        android_arm64: {
+            srcs: ["proprietary/vendor/lib64/libcharon-ss.so"],
+        },
+    },
+    compile_multilib: "both",
+    vendor: true,
+    prefer: true,
+}
