@@ -27625,10 +27625,11 @@ cc_prebuilt_binary {
     prefer: true,
     soc_specific: true,
 }
-/**
- * IMS Media Stack Libraries (System)
- */
 
+/**
+ * IMS Media Stack (System)
+ * These must match the architecture of the IMS Service (usually 64-bit).
+ */
 cc_prebuilt_library_shared {
     name: "libimsma",
     owner: "xiaomi",
@@ -27636,12 +27637,26 @@ cc_prebuilt_library_shared {
     target: {
         android_arm64: {
             srcs: ["proprietary/system/lib64/libimsma.so"],
+            shared_libs: [
+                "libimsma_adapt",
+                "libimsma_rtp",
+                "libimsma_socketwrapper",
+                "liblog",
+                "libcutils",
+                "libutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
         },
     },
     compile_multilib: "64",
     prefer: true,
+    // Note: No soc_specific here because these are in /system/
 }
 
+// Sub-libraries for IMS (Repeat this pattern for adapt, rtp, and socketwrapper)
 cc_prebuilt_library_shared {
     name: "libimsma_adapt",
     owner: "xiaomi",
@@ -27649,32 +27664,7 @@ cc_prebuilt_library_shared {
     target: {
         android_arm64: {
             srcs: ["proprietary/system/lib64/libimsma_adapt.so"],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libimsma_rtp",
-    owner: "xiaomi",
-    strip: { none: true },
-    target: {
-        android_arm64: {
-            srcs: ["proprietary/system/lib64/libimsma_rtp.so"],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libimsma_socketwrapper",
-    owner: "xiaomi",
-    strip: { none: true },
-    target: {
-        android_arm64: {
-            srcs: ["proprietary/system/lib64/libimsma_socketwrapper.so"],
+            shared_libs: ["liblog", "libcutils", "libc++", "libc"],
         },
     },
     compile_multilib: "64",
@@ -27682,31 +27672,9 @@ cc_prebuilt_library_shared {
 }
 
 /**
- * ePDG / VoWiFi Binaries (Vendor)
+ * ePDG / VoWiFi Components (Vendor)
+ * These handle the secure tunnel and must match your libion style.
  */
-
-cc_prebuilt_binary {
-    name: "charon",
-    owner: "xiaomi",
-    srcs: ["proprietary/vendor/bin/charon"],
-    check_elf: false,
-    strip: { none: true },
-    vendor: true,
-}
-
-cc_prebuilt_binary {
-    name: "epdg_wod",
-    owner: "xiaomi",
-    srcs: ["proprietary/vendor/bin/epdg_wod"],
-    check_elf: false,
-    strip: { none: true },
-    vendor: true,
-}
-
-/**
- * ePDG Support Libraries (Vendor)
- */
-
 cc_prebuilt_library_shared {
     name: "libcharon-ss",
     owner: "xiaomi",
@@ -27719,7 +27687,28 @@ cc_prebuilt_library_shared {
             srcs: ["proprietary/vendor/lib64/libcharon-ss.so"],
         },
     },
+    shared_libs: ["liblog", "libcutils", "libc++", "libc"],
     compile_multilib: "both",
-    vendor: true,
     prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_binary {
+    name: "charon",
+    owner: "xiaomi",
+    srcs: ["proprietary/vendor/bin/charon"],
+    check_elf: false,
+    strip: { none: true },
+    vendor: true,
+    shared_libs: ["libcharon-ss", "liblog", "libcutils", "libc++", "libc"],
+}
+
+cc_prebuilt_binary {
+    name: "epdg_wod",
+    owner: "xiaomi",
+    srcs: ["proprietary/vendor/bin/epdg_wod"],
+    check_elf: false,
+    strip: { none: true },
+    vendor: true,
+    shared_libs: ["liblog", "libcutils", "libutils", "libc++", "libc"],
 }
