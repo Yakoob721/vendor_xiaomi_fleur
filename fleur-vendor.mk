@@ -302,15 +302,7 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/fleur/proprietary/vendor/thh/ta/d91f322ad5a441d5955110eda3272fc0.ta:$(TARGET_COPY_OUT_VENDOR)/thh/ta/d91f322ad5a441d5955110eda3272fc0.ta \
     vendor/xiaomi/fleur/proprietary/vendor/thh/ta/e5140b3376fa4c63ab18062caab2fb5c.ta:$(TARGET_COPY_OUT_VENDOR)/thh/ta/e5140b3376fa4c63ab18062caab2fb5c.ta \
     vendor/xiaomi/fleur/proprietary/vendor/thh/ta/e97c270ea5c44c58bcd3384a2fa2539e.ta:$(TARGET_COPY_OUT_VENDOR)/thh/ta/e97c270ea5c44c58bcd3384a2fa2539e.ta \
-    vendor/xiaomi/fleur/proprietary/vendor/thh/ta/isee_model.json:$(TARGET_COPY_OUT_VENDOR)/thh/ta/isee_model.json
-    vendor/xiaomi/fleur/proprietary/system/lib64/libimsma.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libimsma.so \
-    vendor/xiaomi/fleur/proprietary/system/lib64/libimsma_adapt.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libimsma_adapt.so \
-    vendor/xiaomi/fleur/proprietary/system/lib64/libimsma_rtp.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libimsma_rtp.so \
-    vendor/xiaomi/fleur/proprietary/system/lib64/libimsma_socketwrapper.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libimsma_socketwrapper.so \
-    vendor/xiaomi/fleur/proprietary/vendor/bin/charon:$(TARGET_COPY_OUT_VENDOR)/bin/charon \
-    vendor/xiaomi/fleur/proprietary/vendor/bin/epdg_wod:$(TARGET_COPY_OUT_VENDOR)/bin/epdg_wod \
-    vendor/xiaomi/fleur/proprietary/vendor/lib/libcharon-ss.so:$(TARGET_COPY_OUT_VENDOR)/lib/libcharon-ss.so \
-    vendor/xiaomi/fleur/proprietary/vendor/lib64/libcharon-ss.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libcharon-ss.so
+    vendor/xiaomi/fleur/proprietary/vendor/thh/ta/isee_model.json:$(TARGET_COPY_OUT_VENDOR)/thh/ta/isee_model.json \
 
 PRODUCT_PACKAGES += \
     libbwc \
@@ -1278,14 +1270,7 @@ PRODUCT_PACKAGES += \
     wfca \
     wlan_assistant \
     wmt_launcher \
-    wmt_loader \
-    libimsma \
-    libimsma_adapt \
-    libimsma_rtp \
-    libimsma_socketwrapper \
-    charon \
-    epdg_wod \
-    libcharon-ss    
+    wmt_loader
 
 PRODUCT_BOOT_JARS += \
     camerax-vendor-extensions

@@ -27674,30 +27674,28 @@ cc_prebuilt_library_shared {
 /**
  * ePDG / VoWiFi Components (Vendor)
  * These handle the secure tunnel and must match your libion style.
- */
+*/
+        
 cc_prebuilt_library_shared {
     name: "libcharon-ss",
     owner: "xiaomi",
     strip: { none: true },
     target: {
-        android_arm: {
-            srcs: ["proprietary/vendor/lib/libcharon-ss.so"],
-        },
         android_arm64: {
             srcs: ["proprietary/vendor/lib64/libcharon-ss.so"],
         },
     },
     shared_libs: ["liblog", "libcutils", "libc++", "libc"],
-    compile_multilib: "both",
+    compile_multilib: "64",
     prefer: true,
     soc_specific: true,
 }
+
 
 cc_prebuilt_binary {
     name: "charon",
     owner: "xiaomi",
     srcs: ["proprietary/vendor/bin/charon"],
-    check_elf: false,
     strip: { none: true },
     vendor: true,
     shared_libs: ["libcharon-ss", "liblog", "libcutils", "libc++", "libc"],
@@ -27707,8 +27705,126 @@ cc_prebuilt_binary {
     name: "epdg_wod",
     owner: "xiaomi",
     srcs: ["proprietary/vendor/bin/epdg_wod"],
-    check_elf: false,
     strip: { none: true },
     vendor: true,
     shared_libs: ["liblog", "libcutils", "libutils", "libc++", "libc"],
+}
+cc_prebuilt_library_shared {
+
+    name: "libimsma_rtp",
+
+    owner: "xiaomi",
+
+    strip: {
+
+        none: true,
+
+    },
+
+    target: {
+
+           android_arm64: {
+
+            srcs: ["proprietary/vendor/lib64/libimsma_rtp.so"],
+
+            shared_libs: [
+
+                "libcutils",
+
+                "liblog",
+
+                "libutils",
+
+                "libc++",
+
+                "libc",
+
+                "libm",
+
+                "libdl",
+
+            ],
+
+        },
+
+    },
+
+    compile_multilib: "both",
+
+    prefer: true,
+
+    soc_specific: true,
+
+}
+
+cc_prebuilt_library_shared {
+
+    name: "libimsma_socketwrapper",
+
+    owner: "xiaomi",
+
+    strip: {
+
+        none: true,
+
+    },
+
+    target: {
+
+        android_arm: {
+
+            srcs: ["proprietary/vendor/lib/libimsma_socketwrapper.so"],
+
+            shared_libs: [
+
+                "libcutils",
+
+                "liblog",
+
+                "libutils",
+
+                "libc++",
+
+                "libc",
+
+                "libm",
+
+                "libdl",
+
+            ],
+
+        },
+
+        android_arm64: {
+
+            srcs: ["proprietary/vendor/lib64/libimsma_socketwrapper.so"],
+
+            shared_libs: [
+
+                "libcutils",
+
+                "liblog",
+
+                "libutils",
+
+                "libc++",
+
+                "libc",
+
+                "libm",
+
+                "libdl",
+
+            ],
+
+        },
+
+    },
+
+    compile_multilib: "both",
+
+    prefer: true,
+
+    soc_specific: true,
+
 }
