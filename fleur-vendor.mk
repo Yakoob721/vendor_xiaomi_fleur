@@ -1272,5 +1272,7 @@ PRODUCT_PACKAGES += \
     wmt_launcher \
     wmt_loader
 
-PRODUCT_BOOT_JARS += \
+# PRODUCT_BOOT_JARS += \
     camerax-vendor-extensions
+
+PRODUCT_PACKAGES += camerax-vendor-extensions
