@@ -1268,8 +1268,16 @@ PRODUCT_PACKAGES += \
     volte_ua \
     vpud \
     wfca \
+    libcharon-ss \
+    charon \
+    epdg_wod \
+    starter \
+    stroke \
+    libstrongswan \
+    libwo \
     wlan_assistant \
     wmt_launcher \
+    libhydra \
     wmt_loader
 
 # PRODUCT_BOOT_JARS += \

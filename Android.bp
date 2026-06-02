@@ -27737,3 +27737,103 @@ cc_prebuilt_binary {
     shared_libs: ["liblog", "libcutils", "libutils", "libc++", "libc"],
 }
 
+cc_prebuilt_binary {
+    name: "starter",
+    owner: "xiaomi",
+    srcs: ["proprietary/vendor/bin/starter"],
+    strip: { none: true },
+    vendor: true,
+    shared_libs: [
+        "libstrongswan", 
+        "liblog", 
+        "libcutils", 
+        "libc++", 
+        "libc"
+    ],
+}
+
+cc_prebuilt_binary {
+    name: "stroke",
+    owner: "xiaomi",
+    srcs: ["proprietary/vendor/bin/stroke"],
+    strip: { none: true },
+    vendor: true,
+    shared_libs: [
+        "liblog", 
+        "libcutils", 
+        "libc++", 
+        "libc"
+    ],
+}
+
+cc_prebuilt_library_shared {
+    name: "libstrongswan",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/vendor/lib64/libstrongswan.so"],
+            shared_libs: [
+                "liblog",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libwo",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/vendor/lib64/libwo.so"],
+            shared_libs: [
+                "liblog",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libhydra",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/vendor/lib64/libhydra.so"],
+            shared_libs: [
+                "liblog",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
