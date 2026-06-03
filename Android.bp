@@ -27707,6 +27707,7 @@ cc_prebuilt_library_shared {
     name: "libcharon-ss",
     owner: "xiaomi",
     strip: { none: true },
+    check_elf_files: false,
     target: {
         android_arm64: {
             srcs: ["proprietary/vendor/lib64/libcharon-ss.so"],
@@ -27723,6 +27724,7 @@ cc_prebuilt_binary {
     name: "charon",
     owner: "xiaomi",
     srcs: ["proprietary/vendor/bin/charon"],
+    check_elf_files: false,
     strip: { none: true },
     vendor: true,
     shared_libs: ["libcharon-ss", "liblog", "libcutils", "libc++", "libc"],
@@ -27732,6 +27734,7 @@ cc_prebuilt_binary {
     name: "epdg_wod",
     owner: "xiaomi",
     srcs: ["proprietary/vendor/bin/epdg_wod"],
+    check_elf_files: false,
     strip: { none: true },
     vendor: true,
     shared_libs: ["liblog", "libcutils", "libutils", "libc++", "libc"],
@@ -27741,6 +27744,7 @@ cc_prebuilt_binary {
     name: "starter",
     owner: "xiaomi",
     srcs: ["proprietary/vendor/bin/starter"],
+    check_elf_files: false,
     strip: { none: true },
     vendor: true,
     shared_libs: [
@@ -27756,6 +27760,7 @@ cc_prebuilt_binary {
     name: "stroke",
     owner: "xiaomi",
     srcs: ["proprietary/vendor/bin/stroke"],
+    check_elf_files: false,
     strip: { none: true },
     vendor: true,
     shared_libs: [
@@ -27772,6 +27777,7 @@ cc_prebuilt_library_shared {
     strip: {
         none: true,
     },
+    check_elf_files: false,
     target: {
         android_arm64: {
             srcs: ["proprietary/vendor/lib64/libstrongswan.so"],
@@ -27796,6 +27802,7 @@ cc_prebuilt_library_shared {
     strip: {
         none: true,
     },
+    check_elf_files: false,
     target: {
         android_arm64: {
             srcs: ["proprietary/vendor/lib64/libwo.so"],
@@ -27820,6 +27827,7 @@ cc_prebuilt_library_shared {
     strip: {
         none: true,
     },
+    check_elf_files: false,
     target: {
         android_arm64: {
             srcs: ["proprietary/vendor/lib64/libhydra.so"],
