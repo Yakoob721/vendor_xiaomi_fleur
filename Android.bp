@@ -27703,21 +27703,6 @@ cc_prebuilt_library_shared {
  * These handle the secure tunnel and must match your libion style.
 */
         
-cc_prebuilt_library_shared {
-    name: "libcharon-ss",
-    owner: "xiaomi",
-    strip: { none: true },
-    target: {
-        android_arm64: {
-            srcs: ["proprietary/vendor/lib64/libcharon-ss.so"],
-        },
-    },
-    shared_libs: ["liblog", "libcutils", "libc++", "libc"],
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
 
 cc_prebuilt_binary {
     name: "charon",
@@ -27790,6 +27775,31 @@ cc_prebuilt_library_shared {
     soc_specific: true,
 }
 
+
+cc_prebuilt_library_shared {
+    name: "libhydra",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/vendor/lib64/libhydra.so"],
+            shared_libs: [
+                "liblog",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
 cc_prebuilt_library_shared {
     name: "libwo",
     owner: "xiaomi",
@@ -27815,15 +27825,118 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libhydra",
+    name: "libcrypto-md",
     owner: "xiaomi",
     strip: {
         none: true,
     },
     target: {
         android_arm64: {
-            srcs: ["proprietary/vendor/lib64/libhydra.so"],
+            srcs: ["proprietary/vendor/lib64/libcrypto-md.so"],
             shared_libs: [
+                "liblog",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libssl-md",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/vendor/lib64/libssl-md.so"],
+            shared_libs: [
+                "libcrypto-md",
+                "liblog",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libcurl-md",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/vendor/lib64/libcurl-md.so"],
+            shared_libs: [
+                "libcrypto-md",
+                "libssl-md",
+                "liblog",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libcharon-ss",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/vendor/lib64/libcharon-ss.so"],
+            shared_libs: [
+                "libhydra",
+                "libcrypto-md",
+                "liblog",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+
+cc_prebuilt_library_shared {
+    name: "libsimaka",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/vendor/lib64/libsimaka.so"],
+            shared_libs: [
+                "libstrongswan",
                 "liblog",
                 "libcutils",
                 "libc++",

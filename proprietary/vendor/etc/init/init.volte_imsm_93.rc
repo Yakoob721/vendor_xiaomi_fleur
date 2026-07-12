@@ -49,12 +49,12 @@ on property:vendor.volte_md_status=exception
     stop volte_imsm_93
 
 service volte_imsm_93 /vendor/bin/volte_imsm_93
-    class main
+    class core
     user system
     group radio cache inet misc log system wifi net_raw
     capabilities NET_RAW NET_ADMIN
-    oneshot
-    disabled
+    critical
+    socket rild-ims stream 0660 radio radio
 
 #
 # MAL related services (End)

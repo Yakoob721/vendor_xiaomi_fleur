@@ -1278,6 +1278,10 @@ PRODUCT_PACKAGES += \
     wlan_assistant \
     wmt_launcher \
     libhydra \
+    libssl-md \
+    libcrypto-md \
+    libcurl-md \
+    libsimaka \
     wmt_loader
 
 # PRODUCT_BOOT_JARS += \
